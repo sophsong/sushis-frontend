@@ -4,11 +4,10 @@ import {createStore, applyMiddleware, compose} from 'redux';
 // compose combines a few diff middlewares into one
 import thunk from 'redux-thunk';
 import {Provider} from 'react-redux'
-// import './index.css';
 import rollReducer from './reducers/rollReducer'
 import App from './App';
-// import * as serviceWorker from './serviceWorker';
-// let reducer = ''
+// import fetchRolls from './actions/fetchRolls'
+
 const composeEnhancers = window._REDUX_DEVTOOLS_EXTENSION_COMPOSE_ || compose;
 // set up store
 
