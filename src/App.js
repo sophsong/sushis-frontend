@@ -1,29 +1,21 @@
 import React from 'react';
 // import logo from './logo.svg';
-// import './App.css';
+import './App.css';
+import {connect} from 'react-redux'
+import {fetchRolls} from './actions/fetchRolls'
 //
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
 
+
+//class component
 class App extends React.Component {
+
+  componentDidMount(){
+  }
+
+  //don't complete a repsonse until the prveious is finished completing
+  //async Get request, we wont do anything w/ the data we have until we get a response back
+
+
   render(){
     return (
         <div className="App">
@@ -34,5 +26,12 @@ class App extends React.Component {
   }
   }
 
+// const mapStateToProps = (state) => {
+//   return {
+//     rolls: state.rolls
+//   }
+// }
 
-export default App;
+
+export default connect(null, {fetchRolls}) (App);
+//asking for access to a specific part of the store
