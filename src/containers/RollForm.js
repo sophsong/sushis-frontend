@@ -7,85 +7,94 @@ import FormError from '../components/FormError';
 
 class RollForm extends Component {
 
-  handleOnChange = event => {
-    const {name, value} = event.target;
-    const currentRollFormData = Object.assign({}, this.props.rollFormData, {
-      [name]: value
-    })
-    this.props.updateRollFormData(currentRollFormData)
-  }
+  state = {
+    name: "",
+    price: 0,
+    rating: 0,
+    description: ''
+  }
 
-  handleOnSubmit = e => {
-    e.preventDefault();
-    const { createRoll, rollFormData, history} = this.props;
-		createRoll(rollFormData, history);
-  }
+  handleOnChange = event => {
+    this.setState({[event.target.name]: event.target.value});
 
-  render() {
-    console.log(this.props)
-    const { name, price, rating, description } = this.props.rollFormData;
+    const {name, value} = event.target;
+    const currentRollFormData = Object.assign({}, this.props.rollFormData, {
+      [name]: value
+    })
+    this.props.updateRollFormData(currentRollFormData);
+  }
 
-    return (
-      <div>
-        <h1 className="rollName">Create a New Roll</h1>
-        {this.props.errors === true ? <FormError/> : null}
+  handleOnSubmit = e => {
+    e.preventDefault();
+    const { createRoll, history} = this.props;
+    const rollFormData = this.state;
 
-      <form onSubmit={this.handleOnSubmit}>
-        <div>
-          <label htmlFor="name">Name:</label>
-          <input
-            type="text"
-            onChange={this.handleOnChange}
-            name="name"
-            value={name}
-          />
-        </div>
+createRoll(rollFormData, history);
+  }
 
-        <div>
-          <label htmlFor="price">Price:</label>
-          <textarea
-            type="text"
-            onChange={this.handleOnChange}
-            name="price"
-            value={price}
-          />
-        </div>
+  render() {
 
-        <div>
-          <label htmlFor="rating">Rating:</label>
-          <textarea
-            type="text"
-            onChange={this.handleOnChange}
-            name="rating"
-            value={rating}
-          />
-        </div>
+    return (
+      <div>
+        <h1 className="rollName">Create a New Roll</h1>
+        {this.props.errors === true ? <FormError/> : null}
 
-        <div>
-          <label htmlFor="description">Description:</label>
-          <input
-            type="text"
-            onChange={this.handleOnChange}
-            name="description"
-            value={description}
-          />
+      <form onSubmit={this.handleOnSubmit}>
+        <div>
+          <label htmlFor="name">Name:</label>
+          <input
+            type="text"
+            onChange={this.handleOnChange}
+            name="name"
+            value={this.state.name}
+          />
+        </div>
 
-          <button type="submit">Add Roll</button>
-        </div>
-      </form>
-      </div>
-    )
-  }
+        <div>
+          <label htmlFor="price">Price:</label>
+          <input
+            type="number"
+            onChange={this.handleOnChange}
+            name="price"
+            value={this.state.price}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="rating">Rating:</label>
+          <input
+            type="number"
+            onChange={this.handleOnChange}
+            name="rating"
+            value={this.state.rating}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="description">Description:</label>
+          <input
+            type="text"
+            onChange={this.handleOnChange}
+            name="description"
+            value={this.state.description}
+          />
+
+          <button type="submit">Add Roll</button>
+        </div>
+      </form>
+      </div>
+    )
+  }
 }
 
 const mapStateToProps = state => {
-  return {
-    rollFormData: state.rollFormData,
-    errors: state.errors
-  }
+  return {
+    rollFormData: state.rollFormData,
+    errors: state.errors
+  }
 }
 
 export default connect(mapStateToProps, {
-  updateRollFormData,
-  createRoll
+  updateRollFormData,
+  createRoll
 })(RollForm);

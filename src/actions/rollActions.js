@@ -7,10 +7,12 @@ export const setRolls = rolls => {
   return {
     type: 'GET_ROLLS',
     rolls
+
   }
 }
 
 export const addRoll = roll => {
+  // console.log(roll)
   return {
     type:'CREATE_ROLL',
     roll
@@ -56,25 +58,27 @@ export const fetchIndRoll = (rollId) => {
 }
 
 export const createRoll = (roll, routerHistory) => {
+  // console.log(roll, API_URL)
   return dispatch => {
-    return fetch(`${API_URL}/rolls`, {
+    return fetch(`http://localhost:3000/api/v1/rolls`, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({roll: roll})
     })
-    .then(handleErrors)
+    // .then(handleErrors)
     .then(response => response.json())
     .then(roll => {
+      // console.log(roll)
       dispatch(addRoll(roll))
       dispatch(resetRollForm())
       routerHistory.replace(`/rolls/${roll.id}`)
     })
-    .catch(error => {
-      dispatch({type: 'error'})
-      routerHistory.replace(`/rolls/new`)
-     })
+    // .catch(error => {
+    //   dispatch({type: 'error'})
+    //   routerHistory.replace(`/rolls/new`)
+    //  })
   }
 }
 

@@ -1,4 +1,4 @@
-export const updateRollFormData = rollFormData => {
+export const updateRollFormData = (rollFormData)=> {
   return {
     type: 'UPDATED_ROLL',
     rollFormData
