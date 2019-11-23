@@ -8,6 +8,6 @@ export function fetchRolls(){
       .then(res => res.json())
       .then(data => console.log(data))
 
-
+      dispatch()
 
 }//end of fucntion
