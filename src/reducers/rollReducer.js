@@ -14,8 +14,8 @@ export default (state = [], action) => {
     case 'CREATE_ROLL':
       return state.concat(action.roll);
 
-    case 'REMOVE_ROLL':
-      return state.filter(roll => roll.id !== action.rollId);
+    // case 'REMOVE_ROLL':
+    //   return state.filter(roll => roll.id !== action.rollId);
 
     case 'LIKE_ROLL':
       return state.map((roll) => {

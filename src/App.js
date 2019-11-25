@@ -1,38 +1,58 @@
-import React, { Component } from 'react';
-import './App.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { Container } from 'semantic-ui-react';
-import Navbar from './components/Navbar';
-import Home from './components/Home';
-import Rolls from './containers/Rolls';
-import RollForm from './containers/RollForm';
-import RollShow from './containers/RollShow';
+import React from 'react';
+// import {connect} from 'react-redux'
+import RollsContainer from './containers/RollsContainer'
 
-
-class App extends Component {
+class App extends React.Component {
 
   render() {
     return (
       <div className="App">
-        <Router>
-            <div>
-              <Navbar/>
-              <Container>
-              <Switch>
-                <Route exact path='/' component={Home}/>
-                <Route exact path='/rolls' component={Rolls}/>
-                <Route exact path='/rolls/new' component={RollForm}/>
-                <Route path='/rolls/:rollId' component={RollShow}/>
-              </Switch>
-            </Container>
-            </div>
-        </Router>
+        <RollsContainer/>
       </div>
     );
   }
 }
 
+
 export default App;
+
+// code from harpreet
+
+// import React, { Component } from 'react';
+// import './App.css';
+// import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+// import { Container } from 'semantic-ui-react';
+// import Navbar from './components/Navbar';
+// import Home from './components/Home';
+// import Rolls from './containers/Rolls';
+// import RollForm from './containers/RollForm';
+// import RollShow from './containers/RollShow';
+//
+//
+// class App extends Component {
+//
+//   render() {
+//     return (
+//       <div className="App">
+//         <Router>
+//             <div>
+//               <Navbar/>
+//               <Container>
+//               <Switch>
+//                 <Route exact path='/' component={Home}/>
+//                 <Route exact path='/rolls' component={Rolls}/>
+//                 <Route exact path='/rolls/new' component={RollForm}/>
+//                 <Route path='/rolls/:rollId' component={RollShow}/>
+//               </Switch>
+//             </Container>
+//             </div>
+//         </Router>
+//       </div>
+//     );
+//   }
+// }
+//
+// export default App;
 
 
 
