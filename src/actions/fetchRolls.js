@@ -6,7 +6,7 @@ export function fetchRolls(){
       })
       .then(res => res.json())
       .then(rolls =>
-        dispatch({type: 'GET_ROLLS', payload: rolls}, console.log(rolls)),
+        dispatch({type: 'FETCH_ROLLS', payload: rolls}),
 
     )
 

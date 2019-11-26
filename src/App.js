@@ -1,13 +1,18 @@
 import React from 'react';
 // import {connect} from 'react-redux'
 import RollsContainer from './containers/RollsContainer'
-
+import Home from './components/Home'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 class App extends React.Component {
 
   render() {
     return (
       <div className="App">
+        <Router>
         <RollsContainer/>
+        
+         <Route exact path='/' component={Home}/>
+         </Router>
       </div>
     );
   }
