@@ -6,7 +6,7 @@ class Home extends React.Component {
   render(){
   return (
     <div className="home">
-    <h1> Build a Roll</h1>
+    
     <h2> Build Your Roll! </h2>
     <h3> Finally, a quick and easy app for testing out roll ideas! </h3>
     <h3> Try a different roll or stick to your staples! </h3>
