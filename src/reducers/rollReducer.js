@@ -32,39 +32,39 @@
 //   }
 // }
 
-export default function accountReducer(state = {accounts: []}, action) {
+export default function rollReducer(state = {rolls: []}, action) {
   switch (action.type) {
     case 'FETCH_ROLLS':
-      return {accounts: action.payload}
+      return {rolls: action.payload}
     case 'ADD_ROLL':
-      return {...state, accounts: [...state.accounts, action.payload]}
+      return {...state, rolls: [...state.rolls, action.payload]}
     // case 'ADD_INGREDIENT':
-    //   let accounts = state.accounts.map(account => {
-    //     if (account.id === action.payload.id) {
+    //   let rolls = state.rolls.map(roll => {
+    //     if (roll.id === action.payload.id) {
     //       return action.payload
     //     } else {
-    //       return account
+    //       return roll
     //     }
     //   })
-    //   return {...state, accounts: accounts}
+    //   return {...state, rolls: rolls}
     // case 'DELETE_INGREDIENT':
-    //   let accountsTwo = state.accounts.map(account => {
-    //     if (account.id === action.payload.id) {
+    //   let rollsTwo = state.rolls.map(roll => {
+    //     if (roll.id === action.payload.id) {
     //       return action.payload
     //     } else {
-    //       return account
+    //       return roll
     //     }
     //   })
-    //   return {...state, accounts: accountsTwo}
+    //   return {...state, rolls: rollsTwo}
     case 'EDIT_ROLL':
-      let accountsThree = state.accounts.map(account => {
-        if (account.id === action.payload.id) {
+      let rollsThree = state.rolls.map(roll => {
+        if (roll.id === action.payload.id) {
           return action.payload
         } else {
-          return account
+          return roll
         }
       })
-      return {...state, accounts: accountsThree}
+      return {...state, rolls: rollsThree}
     default:
       return state
   }
