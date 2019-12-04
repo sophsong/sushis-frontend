@@ -8,7 +8,8 @@ class RollInput extends React.Component {
     name: '',
     price: 0,
     rating: 0,
-    description: ''
+    description: '',
+    ingredients: ""
   }
 
   handleChange = (event) => {
@@ -22,21 +23,26 @@ class RollInput extends React.Component {
     this.props.addRoll(this.state)
     this.setState({
       name: '',
-      balance: ''
+      price: 0,
+      rating: 0,
+      description: '',
+      ingredients: ""
     })
   }
 
   render() {
+
     return (
+
       <div>
         <form onSubmit={this.handleSubmit}>
-          <label>Checking Roll Name: </label>
+          <label>Name: </label>
           <input type='text' placeholder='Name' value={this.state.name} name="name" onChange={this.handleChange}/><br/>
-          <label>Roll Price: </label>
+          <label>Price: </label>
           <input type='number' placeholder='Price' value={this.state.price} name="price" onChange={this.handleChange}/><br/>
-          <label>Checking Roll Description: </label>
+          <label>Initial Rating: </label>
           <input type='number' placeholder='Rating' value={this.state.rating} name="rating" onChange={this.handleChange}/><br/>
-          <label>Checking Roll Description: </label>
+          <label>Description: </label>
           <input type='text' placeholder='Description' value={this.state.description} name="description" onChange={this.handleChange}/><br/>
           <input type="submit"/>
         </form>

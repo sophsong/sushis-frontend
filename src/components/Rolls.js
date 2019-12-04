@@ -1,6 +1,6 @@
 import React from 'react'
-// import { Link} from 'react-router-dom'
-// import {Roll} from './Roll'
+import { Link} from 'react-router-dom'
+import {Roll} from './Roll'
 import {connect} from 'react-redux'
 import {fetchRolls} from '../actions/fetchRolls'
 
@@ -15,10 +15,11 @@ render(){
   return (
     <div>
 
-  <h1>  Rolls Page </h1>
-    <li> {this.props.rolls.map(function(roll){
-      return <div> {roll.name} </div>
-    })}</li>
+  <h1>  List of Rolls </h1>
+    <p> {this.props.rolls.map(function(roll){
+      return <div>       <Link to={`/rolls/${roll.id}`}>{roll.name}</Link>
+ </div>
+    })}</p>
     </div>
 
 
