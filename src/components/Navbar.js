@@ -18,6 +18,8 @@ class Navbar extends React.Component {
         </Menu.Item>
         <Menu.Item as={Link} to='/rolls/new' name='Create A Roll'>
         </Menu.Item>
+        <Menu.Item as={Link} to='/ingredients' name='Ingredients'>
+          </Menu.Item>
       </Menu>
     </div>
   );

@@ -1,15 +1,16 @@
-// export const editRoll = (data) => {
+// export const getIngredients = (data) => {
+//
 //   return (dispatch) => {
-//     fetch(`http://localhost:3000/api/v1/accounts/${data.id}`, {
+//     fetch('http://localhost:3000/api/v1/ingredients', {
 //       headers: {
 //         'Content-Type': 'application/json',
 //         'Accept': 'application/json'
 //       },
-//       method: 'PATCH',
+//       method: 'POST',
 //       body: JSON.stringify(data)
 //     })
 //     .then(response => response.json())
-//     .then(roll => dispatch({type: 'EDIT_ROLL', payload: roll}))
+//     .then(roll => dispatch({type: 'ADD_ROLL', payload: roll}))
 //   }
 //
 // }

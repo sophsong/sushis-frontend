@@ -38,6 +38,15 @@ export default function rollReducer(state = {rolls: []}, action) {
       return {rolls: action.payload}
     case 'ADD_ROLL':
       return {...state, rolls: [...state.rolls, action.payload]}
+    case 'ADD_INGREDIENT':
+        let rolls = state.rolls.map(roll => {
+          if (roll.id === action.payload.id) {
+            return action.payload
+          } else {
+            return roll
+          }
+        })
+          return {...state, rolls: rolls}
     // case 'ADD_INGREDIENT':
     //   let rolls = state.rolls.map(roll => {
     //     if (roll.id === action.payload.id) {
