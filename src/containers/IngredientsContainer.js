@@ -1,5 +1,5 @@
 import React from 'react'
-import IngredientInput from '../components/IngredientInput'
+// import IngredientInput from '../components/IngredientInput'
 import Ingredients from '../components/Ingredients'
 import {Route, Switch} from 'react-router-dom'
 
