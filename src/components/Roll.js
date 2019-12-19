@@ -2,7 +2,7 @@ import React from 'react'
 // import {Redirect} from 'react-router-dom'
 // import RollEdit from './RollEdit'
 
-import IngredientsContainer from '../containers/IngredientsContainer'
+// import IngredientsContainer from '../containers/IngredientsContainer'
 
 function Roll() {
 
