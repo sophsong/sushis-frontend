@@ -1,12 +1,18 @@
-// const initialState = []
-export default function rollReducer(state = {}, action) {
+export default function rollReducer(state = [], action) {
 
   switch (action.type) {
     case 'FETCH_ROLLS':
-    debugger
-      return {...state, rolls: action.payload}
+      return [
+        ...action.payload
+      ]
     case 'ADD_ROLL':
-      return {...state, rolls: [...state.rolls, action.payload]}
+      return [
+        ...state,
+        {
+          text: action.text,
+          completed: false
+        }
+      ]
     default:
       return state
   }
