@@ -2,57 +2,22 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {fetchIngredients} from '../actions/fetchIngredients'
+import LikeAll from './LikeAll'
+import AddColor from './AddColor'
 
 class Ingredients extends React.Component {
 
-  //   constructor(props) {
-  //     super(props)
-  //     this.state = {
-  //       fetchIngredients
-  //     }
-  //     this.sortByNameAsc = this.sortByNameAsc.bind(this);
-  //     this.sortByNameDesc = this.sortByNameDesc.bind(this);
-  //   }
-  //
-  //   sortByNameAsc() {
-  //     this.setState(prevState => {
-  //       this.state.ingredients.sort((a, b) => (a.name - b.name))
-  //     });
-  //   }
-  //
-  //   sortByNameDesc() {
-  //     this.setState(prevState => {
-  //       this.state.ingredients.sort((a, b) => (b.name - a.name))
-  //     });
-  //   }
-  //
-  //   render() {
-  //     return (<div>
-  //       Ingredients
-  //       <button onClick={this.sortByNameAsc}>
-  //         ASC
-  //       </button>
-  //       <button onClick={this.sortByNameDesc}>
-  //         DESC
-  //       </button>
-  //
-  //       {
-  //         this.state.ingredients.map((ingredient) => <div id="ingredients">
-  //           <Link to={`/ingredients/${ingredient.id}`}>{ingredient.name}</Link>
-  //         </div>)
-  //       }
-  //     </div>)
-  //   }
-  // }
-  // export default Ingredients
-
-  //trying
-
+  state = {
+    likes: 0,
+    // status: "Not Clicked"
+  }
   componentDidMount() {
     this.props.fetchIngredients()
   }
 
+  // added
   sortBy(e) {
+    console.log(this.state)
     this.forceUpdate();
     const sortedIngredients = [this.props.ingredients.sort(function(a, b) {
         if (a.name < b.name) {
@@ -63,35 +28,63 @@ class Ingredients extends React.Component {
         }
         return 0;
       })]
-    console.log(sortedIngredients)
 
-    // this sorts it within the console,
-    // but its not rendering within console
+    // console.log(sortedIngredients)
+  }
 
+  addLikes = (e) => {
+    this.setState({
+      likes: this.state.likes + 1
+    })
+  }
+
+  filterBy(e) {
+    this.forceUpdate();
+    const filteredIngredients = [this.props.ingredients.filter(function(ingredient) {
+        return ingredient.name[0] === 'B'
+      })]
+    console.log(filteredIngredients)
   }
 
   render() {
+    var ingredientList = this.props.ingredients; // typically helpful to create a local version of state data, so that it is not automatically updated
+    var useThis = this
     return (<div>
       <h1>
         List of Ingredients
       </h1>
-      <p >
+      <p>
         {
-          this.props.ingredients && this.props.ingredients.map(function(ingredient) {
-            return <div id="ingredients">
-              <Link to={`/ingredients/${ingredient.id}`}>{ingredient.name}</Link>
+          ingredientList && ingredientList.map(function(ingredient) {
+            return <div>
+              <p>{ingredient.name}</p>
+              <h3>
+                {useThis.state.likes}</h3>
+
             </div>
+
           })
         }
+
       </p>
+      <p>
+        {this.state.status}</p>
+      <LikeAll onClick={(e) => {
+          useThis.addLikes(e, ingredientList)
+        }}></LikeAll>
+
       <button onClick={(e) => this.sortBy(e)}>
         Sort
       </button>
 
+      <button onClick={(e) => this.filterBy(e)}>
+        Filter
+      </button>
+      <AddColor></AddColor>
+
     </div>)
   }
 }
-
 const mapStateToProps = ({ingredients}) => {
   return {ingredients: ingredients}
 }

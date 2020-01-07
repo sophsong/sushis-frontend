@@ -15,7 +15,7 @@ class App extends React.Component {
         <Navbar/>
         <RollsContainer/>
         <IngredientsContainer/>
-        <Route exact="exact" path='/' component={Home}/>
+        <Route exact path='/' component={Home}/>
       </Router>
     </div>);
   }

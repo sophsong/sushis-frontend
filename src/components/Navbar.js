@@ -7,7 +7,7 @@ class Navbar extends React.Component {
   render() {
     return (<div>
       <Menu>
-        <Menu.Item header="header">Build a Roll</Menu.Item>
+        <Menu.Item header>Build a Roll</Menu.Item>
         <Menu.Item as={Link} to='/'>
           <Icon name="home"/>
         </Menu.Item>
