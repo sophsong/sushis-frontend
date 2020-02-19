@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 // import {Link} from 'react-router-dom'
 import {fetchIngredients} from '../actions/fetchIngredients'
-import LikeAll from './LikeAll'
+// import LikeAll from './LikeAll'
 import AddColor from './AddColor'
 
 class Ingredients extends React.Component {
@@ -67,9 +67,7 @@ class Ingredients extends React.Component {
       </p>
       <p>
         {this.state.status}</p>
-      <LikeAll onClick={(e) => {
-          useThis.addLikes(e, ingredientList)
-        }}></LikeAll>
+      // // //
 
       <button onClick={(e) => this.sortBy(e)}>
         Sort
