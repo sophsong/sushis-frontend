@@ -18,26 +18,36 @@ class Rolls extends React.Component {
     //in ordeer to access correct data
   }
 
-  handler(e) {
-    this.setState({
-      rating: this.state.rating + 1
+  handler = (e) => {
+    this.setState((prevState) => {
+      return {
+        rating: prevState.rating + 1
+      }
     })
   }
 
-  increaseLike(e) {
-    this.setState({
-      likes: this.state.likes + 1
+  increaseLike = (e) => {
+    this.setState((prevState) => {
+      return {
+        likes: prevState.likes + 1
+      }
     })
   }
 
-  decreaseLike(e) {
-    this.setState({
-      likes: this.state.likes - 1
+  decreaseLike = (e) => {
+    this.setState((prevState) => {
+      return {
+        likes: prevState.likes - 1
+      }
     })
   }
 
   decreaseRatings = () => {
-    this.setState((prevState) => {return {rating: prevState.rating - 1}})
+    this.setState((prevState) => {
+      return {
+        rating: prevState.rating - 1
+      }
+    })
   }
 
   render() {
@@ -49,24 +59,27 @@ class Rolls extends React.Component {
       <IncreaseAllRollLikes handler={(e) => {
           this.handler(e)
         }}/>
-      <button onClick={this.decreaseRatings}> Decrease All Ratings </button>
-      <p>
+      <button onClick={this.decreaseRatings}>
+        Decrease All Ratings
+      </button>
+      <div>
 
         {
           this.props.rolls && this.props.rolls.map((roll) => {
 
             return <div key={roll.id}>
-              <Link to={`/rolls/${roll.id}`}>{roll.name}</Link>
-              <li>
-                Rating: {this.state.rating}</li>
-              <li>
-                Likes: {this.state.likes}</li>
-              <LikeButton />
-              <MinusLikeButton />
-              <FavoriteButton />
+              <h3>
+                <Link to={`/rolls/${roll.id}`}>{roll.name}</Link>
+              </h3>
+              <p>
+                Rating: {this.state.rating}</p>
+
+              <LikeButton/>
+              <MinusLikeButton/>
+              <FavoriteButton/>
             </div>
           })
-        }</p>
+        }</div>
 
     </div>)
   }

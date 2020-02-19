@@ -12,14 +12,18 @@ class MinusLikeButton extends React.Component {
     //
     // })
     //  console.log(this.state)
-    this.setState((prevState)=> {
-      return {likes: prevState.likes - 1}
+    this.setState((prevState) => {
+      return {
+        likes: prevState.likes - 1
+      }
     })
   }
 
   render() {
     return (< div > <button onClick={this.dislikeRoll}>
-      Dislike < /button> <h3> {this.state.likes}</h3>
+      Dislike < /button>
+      <p>
+        Dislikes: {this.state.likes}</p>
 
       < /div >
         )

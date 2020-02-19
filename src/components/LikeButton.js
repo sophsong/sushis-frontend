@@ -24,8 +24,8 @@ class LikeButton extends React.Component {
 
     return (< div > <button onClick={this.likeRoll}>
       Like < /button>
-      <h3>
-        {this.state.likes}</h3>
+      <p>
+        Likes: {this.state.likes}</p>
       < /div >
         )
       }

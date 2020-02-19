@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 import {fetchIngredients} from '../actions/fetchIngredients'
 import LikeAll from './LikeAll'
 import AddColor from './AddColor'
@@ -17,19 +17,16 @@ class Ingredients extends React.Component {
 
   // added
   sortBy(e) {
-    console.log(this.state)
     this.forceUpdate();
-    const sortedIngredients = [this.props.ingredients.sort(function(a, b) {
-        if (a.name < b.name) {
-          return -1
-        }
-        if (a.name > b.name) {
-          return 1;
-        }
-        return 0;
-      })]
-
-    // console.log(sortedIngredients)
+    this.props.ingredients.sort(function(a, b) {
+      if (a.name < b.name) {
+        return -1
+      }
+      if (a.name > b.name) {
+        return 1;
+      }
+      return 0;
+    })
   }
 
   addLikes = (e) => {
@@ -43,6 +40,7 @@ class Ingredients extends React.Component {
     const filteredIngredients = [this.props.ingredients.filter(function(ingredient) {
         return ingredient.name[0] === 'B'
       })]
+
     console.log(filteredIngredients)
   }
 
@@ -56,7 +54,7 @@ class Ingredients extends React.Component {
       <p>
         {
           ingredientList && ingredientList.map(function(ingredient) {
-            return <div>
+            return <div key={ingredient.id}>
               <p>{ingredient.name}</p>
               <h3>
                 {useThis.state.likes}</h3>
