@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-<iframe src="https://drive.google.com/file/d/1lEnz7blJiCkgQoWZtmWzaJY9OPML_HZf/preview" width="640" height="480"></iframe>
+
 
 ## Available Scripts
 
