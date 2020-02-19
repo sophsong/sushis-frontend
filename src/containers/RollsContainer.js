@@ -1,7 +1,5 @@
 import React from 'react'
-// import {connect} from 'react-redux'
 import {Route, Switch} from 'react-router-dom'
-// import {fetchRolls} from '../actions/fetchRolls'
 import Rolls from '../components/Rolls'
 import Roll from '../components/Roll'
 import RollInput from '../components/RollInput'

@@ -86,10 +86,7 @@ class Rolls extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-
   return {rolls: state.rolls}
-
 }
 
 export default connect(mapStateToProps, {fetchRolls})(Rolls)
-// export default Rolls

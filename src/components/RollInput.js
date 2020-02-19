@@ -1,11 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {addRoll} from '../actions/addRoll'
-// import {fetchRolls} from '../actions/fetchRolls'
 
 class RollInput extends React.Component {
-
-  // this.props.fetchRolls()
 
   state = {
     name: '',

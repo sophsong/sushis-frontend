@@ -11,6 +11,5 @@ export function fetchRolls() {
           payload: rolls
         }),
       )
-  } //this function is returned which has dispatch attached (possible bcuz of thunk)
-  //taking fetch and inserting it into redux action b/cuz all in one palce
+  }
 } //end of function
