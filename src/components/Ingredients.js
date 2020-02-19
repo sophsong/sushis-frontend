@@ -8,14 +8,12 @@ import AddColor from './AddColor'
 class Ingredients extends React.Component {
 
   state = {
-    likes: 0,
-    // status: "Not Clicked"
+    likes: 0
   }
   componentDidMount() {
     this.props.fetchIngredients()
   }
 
-  // added
   sortBy(e) {
     this.forceUpdate();
     this.props.ingredients.sort(function(a, b) {
@@ -45,7 +43,7 @@ class Ingredients extends React.Component {
   }
 
   render() {
-    var ingredientList = this.props.ingredients; // typically helpful to create a local version of state data, so that it is not automatically updated
+    var ingredientList = this.props.ingredients;
     var useThis = this
     return (<div>
       <h1>
@@ -67,7 +65,6 @@ class Ingredients extends React.Component {
       </p>
       <p>
         {this.state.status}</p>
-      // // //
 
       <button onClick={(e) => this.sortBy(e)}>
         Sort
